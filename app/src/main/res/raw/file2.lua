@@ -1,9 +1,9 @@
 return {
-    path = "/tts",
+    path = "/tts.{ext}",
     method = Method.GET,
     consumer = function(request)
-        local format = "MP3"
-        local audioFormat = AudioFormat.MP3
+        local format = (request.path.ext or "wav"):upper()
+        local audioFormat = AudioFormat[format]
         local mime = Mime[format]
         local language = request.query.lang or "en"
 
