@@ -209,8 +209,8 @@ So far, the application is provided with four default endpoints, which are:
 ```
 POST /say
 {
-"text": "The text to be spoken",
-"language": "en_US"
+"phrase": "The text to be spoken",
+"lang": "en_US"
 }
 ```
 *Returns:* `202 Accepted` with empty body
@@ -223,7 +223,7 @@ get a complete speech-based notification system.
 
 ## The `/tts.{ext}` endpoint
 ```
-GET /tts.{wave,acc,mp3,m4a,wma,flac}?text=The+text+to+be+spoken&language=en_US
+GET /tts.{wave,acc,mp3,m4a,wma,flac}?phrase=The+text+to+be+spoken&lang=en_US
 ```
 *Returns:* `200 OK` with proper audio file
 
@@ -236,7 +236,7 @@ converter.
 
 Example:
 ```
-GET /tts.mp3?text=Hello+world&language=en_US
+GET /tts.mp3?phrase=Hello+world&lang=en_US
 ```
 
 ## The `/sonos` endpoint (`sonos.lua`)
